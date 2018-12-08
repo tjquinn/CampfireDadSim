@@ -49,8 +49,9 @@ constant_map = generate_map(100, 50)
 
 window = pyglet.window.Window()
 
-music = pyglet.resource.media('assets/music/temp-music.mp3')
-music.play()
+# Going to write my own 8bit song on FL Studio taking this down because it was copyrighted
+# music = pyglet.resource.media('assets/music/temp-music.mp3')
+# music.play()
 
 batch = pyglet.graphics.Batch()
 
