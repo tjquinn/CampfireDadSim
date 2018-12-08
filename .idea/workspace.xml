@@ -25,8 +25,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="555">
+              <caret line="76" column="16" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -40,6 +52,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>surfaces</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -48,11 +65,13 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/graphics-test.py" />
+        <option value="$PROJECT_DIR$/assets.py" />
+        <option value="$PROJECT_DIR$/app.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="55" />
+    <option name="x" value="117" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="899" />
@@ -69,6 +88,24 @@
               <item name="CampfireDadSim" type="b2602c69:ProjectViewProjectNode" />
               <item name="CampfireDadSim" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CampfireDadSim" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CampfireDadSim" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CampfireDadSim" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CampfireDadSim" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="sprites" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CampfireDadSim" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CampfireDadSim" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="sprites" type="462c0819:PsiDirectoryNode" />
+              <item name="environment" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -78,6 +115,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -105,7 +147,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="55" y="23" width="1440" height="899" extended-state="0" />
+    <frame x="117" y="23" width="1440" height="899" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -145,10 +187,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/campfire.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="555">
+          <caret line="76" column="16" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
