@@ -28,7 +28,7 @@ def gimme_string(chunk):
 def generate_map(x, y):
     campfire_map = []
 
-    for i in range(x*y):
+    for i in range(x * y):
         campfire_map.append(choice(surfaces))
 
     return campfire_map
@@ -44,7 +44,7 @@ def display_map(mappy):
     return graphy
 
 
-constant_map = generate_map(100,50)
+constant_map = generate_map(100, 50)
 # print(constant_map);
 
 window = pyglet.window.Window()
@@ -52,31 +52,28 @@ window = pyglet.window.Window()
 music = pyglet.resource.media('assets/music/temp-music.mp3')
 music.play()
 
-
 batch = pyglet.graphics.Batch()
 
 label = pyglet.text.Label('Campfire Dad Sim',
                           font_name='Times New Roman',
                           font_size=36,
-                          x=window.width//2, y=window.height//2,
+                          x=window.width // 2, y=window.height // 2,
                           anchor_x='center', anchor_y='center')
 
 grass_image = pyglet.image.load('assets/sprites/environment/grass.gif')
 grass = pyglet.sprite.Sprite(grass_image, x=64, y=64)
 
-
-
 grass_sprites = []
 for i in range(4):
-    x, y = i+1 * 64, 64
+    x, y = i + 1 * 64, 64
     grass_sprites.append(pyglet.sprite.Sprite(grass_image, x, y, batch=batch))
+
 
 @window.event
 def on_draw():
     window.clear()
     label.draw()
     batch.draw()
-
 
 
 pyglet.app.run()
