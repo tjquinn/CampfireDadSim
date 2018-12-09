@@ -2,8 +2,6 @@ import pyglet
 
 window = pyglet.window.Window(400, 400)
 batch = pyglet.graphics.Batch()
-grid_lines = [(400 / 40), (400 / 40)]
-
 
 def make_grid(batch, height, width, size):
     for i in range(size):
@@ -19,15 +17,11 @@ def make_grid(batch, height, width, size):
 
     return batch
 
-
 make_grid(batch, 400, 400, 40)
-
 
 @window.event
 def on_draw():
     window.clear()
     batch.draw()
-    # vlist.draw(pyglet.gl.GL_LINES)
-
-
+   
 pyglet.app.run()
