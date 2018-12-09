@@ -66,7 +66,7 @@ grass = pyglet.sprite.Sprite(grass_image, x=64, y=64)
 
 grass_sprites = []
 for i in range(4):
-    x, y = i + 1 * 64, 64
+    x, y = i + 1 * 64, i + 1 * 64
     grass_sprites.append(pyglet.sprite.Sprite(grass_image, x, y, batch=batch))
 
 
