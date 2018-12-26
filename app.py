@@ -58,6 +58,29 @@ label = pyglet.text.Label('Campfire Dad Sim',
                           anchor_x='center', anchor_y='center')
 
 
+def character_controller(key):
+
+    # Move dad up
+    if (key.name in ['w', 'up']):
+        print(Dad)
+
+    # Move dad right
+    if (key.name in ['d', 'right']):
+        print(Dad)
+
+    # Move dad down
+    if (key.name in ['s', 'down']):
+        print(Dad)
+
+    # Move dad left
+    if (key.name in ['a', 'left']):
+        print(Dad)
+
+    # Dad Attack
+    if (key.name in ['space']):
+        print(Dad)
+
+
 def make_grid(batch, height, width, size):
     for i in range(size):
         x = (i + 1) * size
@@ -80,14 +103,17 @@ for i in range(len(constant_map)):
     ground_image = pyglet.image.load(constant_map[i]['image'])
     ground_sprites.append(pyglet.sprite.Sprite(ground_image, pos_x, pos_y, batch=batch))
 
+make_grid(batch, 640, 640, 64)
 dad_image = pyglet.image.load('assets/sprites/characters/dad.gif')
 dad_sprite = ground_sprites.append(pyglet.sprite.Sprite(dad_image, 0, 0, batch=batch))
-make_grid(batch, 640, 640, 64)
+
+keyboard.on_press(character_controller)
+
 
 @window.event
 def on_draw():
     window.clear()
-    batch.draw()
+    # batch.draw()
     # label.draw()
 
 
