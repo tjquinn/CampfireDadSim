@@ -1,5 +1,6 @@
 import pyglet
 import copy
+import keyboard
 from termcolor import colored
 from random import choice
 from sys import stdout
@@ -19,7 +20,7 @@ class Characters:
         self.profession = profession
 
 
-Dad = Characters((0, 0), "Dad")
+Dad = Characters((64, 64), "Dad")
 
 
 def gimme_string(chunk):
@@ -34,15 +35,12 @@ def generate_map(width, height, size):
         row = x % 10 * 64
 
         for y in range(10):
-
             col = y % 10 * 64
             surface = copy.deepcopy(choice(surfaces))
             surface['pos'] = {'x': row, 'y': col}
             campfire_map.append(surface)
 
     return campfire_map
-
-
 
 
 window = pyglet.window.Window(640, 640)
@@ -59,6 +57,7 @@ label = pyglet.text.Label('Campfire Dad Sim',
                           x=window.width // 2, y=window.height // 2,
                           anchor_x='center', anchor_y='center')
 
+
 def make_grid(batch, height, width, size):
     for i in range(size):
         x = (i + 1) * size
@@ -74,21 +73,22 @@ def make_grid(batch, height, width, size):
     return batch
 
 
-make_grid(batch, 640, 640, 64)
-
 ground_sprites = []
 for i in range(len(constant_map)):
     pos_x = constant_map[i]['pos']['x']
     pos_y = constant_map[i]['pos']['y']
     ground_image = pyglet.image.load(constant_map[i]['image'])
-    ground = pyglet.sprite.Sprite(ground_image, x=64, y=64)
     ground_sprites.append(pyglet.sprite.Sprite(ground_image, pos_x, pos_y, batch=batch))
+
+dad_image = pyglet.image.load('assets/sprites/characters/dad.gif')
+dad_sprite = ground_sprites.append(pyglet.sprite.Sprite(dad_image, 0, 0, batch=batch))
+make_grid(batch, 640, 640, 64)
 
 @window.event
 def on_draw():
     window.clear()
-    label.draw()
     batch.draw()
+    # label.draw()
 
 
 pyglet.app.run()
