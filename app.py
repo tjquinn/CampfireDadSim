@@ -1,4 +1,5 @@
 import pyglet
+import copy
 from termcolor import colored
 from random import choice
 from sys import stdout
@@ -25,35 +26,32 @@ def gimme_string(chunk):
     return str(chr(chunk))
 
 
-def generate_map(x, y):
+def generate_map(width, height, size):
     campfire_map = []
 
-    for i in range(x * y):
-        campfire_map.append(choice(surfaces))
+    for x in range(10):
+
+        row = x % 10 * 64
+
+        for y in range(10):
+
+            col = y % 10 * 64
+            surface = copy.deepcopy(choice(surfaces))
+            surface['pos'] = {'x': row, 'y': col}
+            campfire_map.append(surface)
 
     return campfire_map
 
 
-# display_map function prints out the map to console
-def display_map(mappy):
-    graphy = ""
-    for i in range(len(mappy)):
-        if mappy[i] in surfaces:
-            graphy += gimme_string(mappy[i][0])
-
-    return graphy
 
 
-constant_map = generate_map(100, 50)
-# print(constant_map);
-
-window = pyglet.window.Window()
+window = pyglet.window.Window(640, 640)
+batch = pyglet.graphics.Batch()
+constant_map = generate_map(640, 640, 64)
 
 # Going to write my own 8bit song on FL Studio taking this down because it was copyrighted
 # music = pyglet.resource.media('assets/music/temp-music.mp3')
 # music.play()
-
-batch = pyglet.graphics.Batch()
 
 label = pyglet.text.Label('Campfire Dad Sim',
                           font_name='Times New Roman',
@@ -61,14 +59,30 @@ label = pyglet.text.Label('Campfire Dad Sim',
                           x=window.width // 2, y=window.height // 2,
                           anchor_x='center', anchor_y='center')
 
-grass_image = pyglet.image.load('assets/sprites/environment/grass.gif')
-grass = pyglet.sprite.Sprite(grass_image, x=64, y=64)
+def make_grid(batch, height, width, size):
+    for i in range(size):
+        x = (i + 1) * size
+        y = (i + 1) * size
+        batch.add(2, pyglet.gl.GL_LINES, None,
+                  ('v2i', (x, 0, x, width)),
+                  ('c3B', (0, 0, 255, 0, 255, 0)))
 
-grass_sprites = []
-for i in range(4):
-    x, y = i + 1 * 64, i + 1 * 64
-    grass_sprites.append(pyglet.sprite.Sprite(grass_image, x, y, batch=batch))
+        batch.add(2, pyglet.gl.GL_LINES, None,
+                  ('v2i', (0, y, height, y)),
+                  ('c3B', (0, 0, 255, 0, 255, 0)))
 
+    return batch
+
+
+make_grid(batch, 640, 640, 64)
+
+ground_sprites = []
+for i in range(len(constant_map)):
+    pos_x = constant_map[i]['pos']['x']
+    pos_y = constant_map[i]['pos']['y']
+    ground_image = pyglet.image.load(constant_map[i]['image'])
+    ground = pyglet.sprite.Sprite(ground_image, x=64, y=64)
+    ground_sprites.append(pyglet.sprite.Sprite(ground_image, pos_x, pos_y, batch=batch))
 
 @window.event
 def on_draw():
