@@ -1,5 +1,6 @@
 import pyglet
 import copy
+import pprint
 import keyboard
 from termcolor import colored
 from random import choice
@@ -19,8 +20,15 @@ class Characters:
         self.loc = loc
         self.profession = profession
 
+    def draw_character(self, x, y, player):
+        self.x = x
+        self.y = y
+        self.player = player
+        player.set_position(x, y)
 
-Dad = Characters((64, 64), "Dad")
+
+player = pyglet.sprite.Sprite(pyglet.image.load('assets/sprites/characters/dad.gif'), 0, 0)
+Dad = Characters((0, 0), "Dad")
 
 
 def gimme_string(chunk):
@@ -59,26 +67,51 @@ label = pyglet.text.Label('Campfire Dad Sim',
 
 
 def character_controller(key):
+    # Looping boundaries
+    min = 0
+    max = 640
+    dad_x = Dad.loc[0]
+    dad_y = Dad.loc[1]
 
     # Move dad up
     if (key.name in ['w', 'up']):
-        print(Dad)
+        if (dad_y + 64 <= max):
+            Dad.loc = (dad_x, (dad_y + 64))
+            Dad.draw_character(dad_x, (dad_y + 64), player)
+        else:
+            Dad.loc = (dad_x, min)
+            Dad.draw_character(dad_x, min, player)
 
     # Move dad right
     if (key.name in ['d', 'right']):
-        print(Dad)
+        if (dad_x + 64 <= max):
+            Dad.loc = ((dad_x + 64), dad_y)
+            Dad.draw_character((dad_x + 64), dad_y, player)
+        else:
+            Dad.loc = (min, dad_y)
+            Dad.draw_character(min, dad_y, player)
 
     # Move dad down
     if (key.name in ['s', 'down']):
-        print(Dad)
+        if (dad_y - 64 > min):
+            Dad.loc = (dad_x, (dad_y - 64))
+            Dad.draw_character(dad_x, (dad_y - 64), player)
+        else:
+            Dad.loc = (dad_x, max)
+            Dad.draw_character(dad_x, max, player)
 
     # Move dad left
     if (key.name in ['a', 'left']):
-        print(Dad)
+        if (dad_x - 64 > min):
+            Dad.loc = ((dad_x - 64), dad_y)
+            Dad.draw_character((dad_x - 64), dad_y, player)
+        else:
+            Dad.loc = (max, dad_y)
+            Dad.draw_character(max, dad_y, player)
 
     # Dad Attack
-    if (key.name in ['space']):
-        print(Dad)
+    # if (key.name in ['space']):
+    #     print('ATTACK!')
 
 
 def make_grid(batch, height, width, size):
@@ -103,9 +136,7 @@ for i in range(len(constant_map)):
     ground_image = pyglet.image.load(constant_map[i]['image'])
     ground_sprites.append(pyglet.sprite.Sprite(ground_image, pos_x, pos_y, batch=batch))
 
-make_grid(batch, 640, 640, 64)
-dad_image = pyglet.image.load('assets/sprites/characters/dad.gif')
-dad_sprite = ground_sprites.append(pyglet.sprite.Sprite(dad_image, 0, 0, batch=batch))
+# make_grid(batch, 640, 640, 64)
 
 keyboard.on_press(character_controller)
 
@@ -113,8 +144,8 @@ keyboard.on_press(character_controller)
 @window.event
 def on_draw():
     window.clear()
-    # batch.draw()
+    batch.draw()
+    player.draw()
     # label.draw()
-
 
 pyglet.app.run()
