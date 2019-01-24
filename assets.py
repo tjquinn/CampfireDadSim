@@ -7,3 +7,5 @@ surfaces = {
         'speed': 0.5, 'reward': 1, 'probability': 3, 'pos': {'x': 64, 'y': 64}},
     3: {'type': 'water', 'utf': {'code': '9608', 'color': '#eee'}, 'image': 'assets/sprites/environment/water.gif',
         'speed': 0, 'reward': 0, 'probability': 5, 'pos': {'x': 64, 'y': 64}}}
+
+inventory = {'logs': 0}
